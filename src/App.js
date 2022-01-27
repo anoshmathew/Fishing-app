@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import RegisterForm from './components/RegisterForm'
+import LoginForm from './components/LoginForm'
+import UserDetails from './components/UserDetails';
+import Logout from './components/Logout';
 
 function App() {
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <RegisterForm/>
+      <br/>
+      <LoginForm/>
+      <br/>
+      <Logout/>
+      <br/>
+      <UserDetails/>
+      <br/>
+
     </div>
-  );
+  )
 }
 
 export default App;
