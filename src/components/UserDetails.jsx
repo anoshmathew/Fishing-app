@@ -22,27 +22,25 @@ function UserDetails() {
         console.log("From Local Storage");
         console.log('loggedUser Token: ',token);
         console.log('loggedUser ID: ',uid);
+        Axios.post(url,{user_id:uid},{headers:{'Token':token}
+        })
+        .then(res=>{
+            console.log(res.data);
+        })
     }
     else{
         console.log('Local Storage is Empty');
     }
-        //Axios.post(url,{
-        //    token:{token},
-        //    id:{uid}
-        //})
-        //.then(res=>{
-        //    console.log(res);
-        //})
+        
 
     }
-   
 
   return (
   <div>
       <h3>User Details</h3>
       <form onSubmit={(e)=>submit(e)}> 
           <br/>
-          <button>User ID</button>
+          <button>Get User Details</button>
       </form>
   </div>
   );
