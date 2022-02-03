@@ -1,7 +1,6 @@
 import React from 'react';
 import Axios from "axios";
 
-
 function UserDetails() {
 
     const url="http://work.phpwebsites.in/fishing/api/userdetail"

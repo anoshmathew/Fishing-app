@@ -3,7 +3,6 @@ import Axios from "axios";
 
 
 function EditUserData() {
-
     const url="http://work.phpwebsites.in/fishing/api/edituser"
     const [data,setData] = useState({  
         User_ID:"",

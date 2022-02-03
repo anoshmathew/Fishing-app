@@ -4,7 +4,7 @@ import Axios from "axios";
 
 function ResetPassword() {
 
-    const url="http://work.phpwebsites.in/fishing/api/resetpassword "
+    const url="http://work.phpwebsites.in/fishing/api/resetpassword"
     const [data,setData] = useState({  
         NewPassword:"",
         User_ID:""

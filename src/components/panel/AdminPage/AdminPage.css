@@ -1,0 +1,18 @@
+.admin_page_main{
+    margin-top:40px ;
+    display: flex;
+    height:700px;
+}
+.left_main{
+    flex:1;
+    
+    background-color: rgb(203, 208, 255);
+    
+}
+.right_main{
+    flex:3;
+    background-color: rgb(255, 255, 255);
+}
+a:hover{
+    cursor: pointer;
+}
