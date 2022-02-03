@@ -2,16 +2,20 @@ import "./AdminPage.css";
 
 import React, { useEffect,useState} from "react";
 import AdminHome from "./AdminHome";
-import { Link, useNavigate } from 'react-router-dom';
+import {Routes, Route, Link, useNavigate } from 'react-router-dom';
 import Logout from "../../Logout";
 import UserHome from "../UserPage/UserHome";
 import SettingsPage from "../SettingsPage/SettingsPage";
-import { render } from "@testing-library/react";
+
+import EditUserData from "../../EditUserData";
+import EditUserStatus from "../../EditUserStatus";
+import ResetPassword from "../../ResetPassword";
+
 
 
 function AdminPage() {
+  
   const navigate = useNavigate();
-  const [currentPage , setCurrentPage] = useState(<div></div>);
   var loggedUser = JSON.parse(localStorage.getItem('data'));
  
     function logoutfunction(e) {
@@ -21,29 +25,8 @@ function AdminPage() {
         console.log("LoggedOut");
         navigate('/');
     }
+if(loggedUser != ''){
 
-
-    // need to find a way to render
-    function settings(e) {
-      e.preventDefault();
-      //currentPage = <SettingsPage/>;
-      console.log("settings clicked");
-    }
-  
-    
-    useEffect(() => {
-      if (loggedUser.user_type == 'admin') {
-        setCurrentPage(<AdminHome/>)
-        
-      } else if(loggedUser.user_type == 'user') {
-        setCurrentPage(<UserHome/>)
-       
-      }
-      else{
-        return(<div>Nothing Nothing</div>);
-      }
-      
-    }, []);
 
   return (
     <div>
@@ -53,10 +36,10 @@ function AdminPage() {
           <div>
             <ul>
               <li>
-                <a href="">Home</a>
+              <Link to="home">Home</Link>
               </li>
               <li>
-                <a onClick={()=>setCurrentPage(<SettingsPage setCurrentPage = {setCurrentPage}/>)}>Settings</a>
+                <Link to="settings">Settings</Link>
               </li>
               <li>
                 <a onClick={(e)=>logoutfunction(e)}>Logout</a>
@@ -66,12 +49,27 @@ function AdminPage() {
         </div>
         <div className="right_main">
           <div>
-            {currentPage}
+          
+            
+            <Routes>
+                <Route path="home" element={<AdminHome/>}/>
+                <Route path="settings" element={<SettingsPage/>}/>
+                <Route path="settings/edituserdata" element={<EditUserData/>}/>
+                <Route path="settings/edituserstatus" element={<EditUserStatus/>}/>
+                <Route path="settings/changepassword" element={<ResetPassword/>}/>
+            </Routes>
+            
           </div>
         </div>
       </div>
     </div>
   );
+}
+else{
+  return(<div>
+    <h3>Wrong Username or Password <span><Link to='/'>Retry</Link></span></h3>
+  </div>)
+}
 }
 
 export default AdminPage;

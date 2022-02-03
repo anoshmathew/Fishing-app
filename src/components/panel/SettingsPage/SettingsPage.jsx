@@ -1,18 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import EditUserData from '../../EditUserData';
 
-function SettingsPage({setCurrentPage}) {
+function SettingsPage() {
+    console.log("settings Page clicked");
   return <div className='settingsMainDiv'>
       <div className='SettingsContent'>
             <ul>
                 <li>
-                    <a onClick={()=>setCurrentPage(<EditUserData/>) }>Change User Details</a>
+                    <Link to="edituserdata">Change User Details</Link>
                 </li>
                 <li>
-                    <a hreh=''>Change Status</a>
+                    <Link to='edituserstatus'>Change Status</Link>
                 </li>
                 <li>
-                    <a hreh=''>Change Password</a>
+                    <Link to='changepassword'>Change Password</Link>
                 </li>
             </ul>
       </div>

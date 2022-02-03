@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import Axios from "axios";
-
+import './EditUserData.css'
 
 function EditUserData() {
     const url="http://work.phpwebsites.in/fishing/api/edituser"
@@ -65,7 +65,7 @@ function EditUserData() {
               <input type="text" id="Name" onChange={(e)=>handle(e)} value={data.Name}/>
           </label>
           <br/>
-          <button>Submit Edit</button>
+          <button id='submit_edit_button'>Submit Edit</button>
       </form>
   </div>
   );
